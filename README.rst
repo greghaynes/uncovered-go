@@ -14,19 +14,19 @@ We will use the kubernetes codebase for this example.
 
 Get the sources:
 
-.. codeblock:: bash
+.. code:: bash
     go get -d k8s.io/kubernetes
 
 Generate a coverage report
 
-.. codeblock:: bash
+.. code:: bash
     cd $GOPATH/src/k8s.io/kubernetes
     make check KUBE_COVER=y
     go tool cover -func=/tmp/k8s_coverage/<see last line of cover run output>/combined-coverage.out > ~/cover.txt
 
 Generate cyclomatic complexity report
 
-.. codeblock:: bash
+.. code:: bash
     go get github.com/fzipp/gocyclo
     go build fzipp/gocyclo
     go install fzipp/gocyclo
@@ -35,5 +35,5 @@ Generate cyclomatic complexity report
 
 Generate uncovered report
 
-.. codeblock:: bash
+.. code:: bash
     python uncovered-go.py ~/cover.txt ~/cyclo.txt
