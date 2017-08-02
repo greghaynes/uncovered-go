@@ -47,8 +47,10 @@ def main():
                                 key=lambda x: x[1][1],
                                 reverse=True))
 
-    import pdb;pdb.set_trace()
-    print('a')
+    for finfo, cov_comp in sorted_finfos:
+        coverage, comp = cov_comp
+        print('%s:%s\t%d\t%f%%' % (finfo.file, finfo.start_lineno,
+                                 comp, coverage))
 
 
 if __name__ == '__main__':
