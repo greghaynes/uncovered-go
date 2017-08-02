@@ -12,28 +12,20 @@ Example usage
 
 We will use the kubernetes codebase for this example.
 
-Get the sources:
-
-.. code:: bash
+Get the sources::
     go get -d k8s.io/kubernetes
 
-Generate a coverage report
-
-.. code:: bash
+Generate a coverage report::
     cd $GOPATH/src/k8s.io/kubernetes
     make check KUBE_COVER=y
     go tool cover -func=/tmp/k8s_coverage/<see last line of cover run output>/combined-coverage.out > ~/cover.txt
 
-Generate cyclomatic complexity report
-
-.. code:: bash
+Generate cyclomatic complexity report::
     go get github.com/fzipp/gocyclo
     go build fzipp/gocyclo
     go install fzipp/gocyclo
     cd $GOPATH/src/k8s.io/kubernetes
     gocyclo k8s.io > ~/cyclo.txt
 
-Generate uncovered report
-
-.. code:: bash
+Generate uncovered report::
     python uncovered-go.py ~/cover.txt ~/cyclo.txt
